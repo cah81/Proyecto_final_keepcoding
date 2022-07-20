@@ -1,4 +1,4 @@
-package com.proyecto.ventasjuegos.entity;
+package com.proyecto.ventasjuegos.apirest.entity;
 
 import java.io.Serializable;
 
