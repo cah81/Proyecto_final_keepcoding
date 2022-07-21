@@ -13,37 +13,35 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import lombok.Data;
 
-
 @Entity
-@Table(name = "detalleventa")
+@Table(name="detalleventa")
 @Data
-public class DetalleVenta implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class DetalleVenta implements Serializable{
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private long id;
+		@Column(nullable = false)
+		private int cantidad;
+		@Column(nullable = false)
+		private double precioVenta;
+		
+		
+		@ManyToOne(fetch = FetchType.LAZY)
+		@JoinColumn(name = "id_Venta")
+		@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+		private Venta venta;
+		
+		@ManyToOne(fetch = FetchType.LAZY)
+		@JoinColumn(name = "id_Producto")
+		@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+		private Producto producto;
+	
 
-    @Column(nullable = false)
-    private int cantidad;
-
-    @Column(nullable = false)
-    private double precioVenta;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_Venta")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Venta venta;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_Producto")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Producto producto;
-
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 }
