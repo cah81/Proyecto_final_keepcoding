@@ -1,13 +1,10 @@
 package com.proyecto.ventasjuegos.apirest.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "producto")
@@ -26,6 +23,11 @@ public class Producto implements Serializable {
 	private String imagen;
 	@Column(nullable = false)
 	private int stock;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_Proveedor")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private Proveedor proveedor;
 
 	public long getId() {
 		return id;
