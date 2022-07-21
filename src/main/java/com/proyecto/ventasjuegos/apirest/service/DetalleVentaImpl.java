@@ -1,7 +1,7 @@
 package com.proyecto.ventasjuegos.apirest.service;
 
-import com.proyecto.ventasjuegos.apirest.dao.DetalleVentaDao;
 import com.proyecto.ventasjuegos.apirest.entity.DetalleVenta;
+import com.proyecto.ventasjuegos.apirest.repository.DetalleVentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,41 +11,41 @@ import java.util.Optional;
 @Service
 public class DetalleVentaImpl implements IDetalleVentaService {
     @Autowired
-    DetalleVentaDao detalleVentaDao;
+    DetalleVentaRepository detalleVentaRepository;
 
     @Override
     public List<DetalleVenta> finAll() {
-        return detalleVentaDao.findAll();
+        return detalleVentaRepository.findAll();
     }
 
     @Override
     public Optional<DetalleVenta> findById(Long id) {
-        return detalleVentaDao.findById(id.toString());
+        return detalleVentaRepository.findById(id);
     }
 
     @Override
     public DetalleVenta save(DetalleVenta detalleVenta) {
-        return detalleVentaDao.save(detalleVenta);
+        return detalleVentaRepository.save(detalleVenta);
     }
 
     @Override
     //TODO: Revisar esto que no me acuerdo bien
     public DetalleVenta update(DetalleVenta detalleVenta, Long id) {
-        Optional<DetalleVenta> detalleVentaOld = detalleVentaDao.findById(id.toString());
+        Optional<DetalleVenta> detalleVentaOld = detalleVentaRepository.findById(id);
         if (detalleVentaOld.isEmpty()){
-            return detalleVentaDao.save(detalleVenta);
+            return detalleVentaRepository.save(detalleVenta);
         } else {
             detalleVentaOld.orElseThrow().setVenta(detalleVenta.getVenta());
             detalleVentaOld.orElseThrow().setCantidad(detalleVenta.getCantidad());
             detalleVentaOld.orElseThrow().setPrecioVenta(detalleVenta.getPrecioVenta());
             detalleVentaOld.orElseThrow().setProducto(detalleVenta.getProducto());
-            return detalleVentaDao.save(detalleVentaOld.get());
+            return detalleVentaRepository.save(detalleVentaOld.get());
         }
     }
 
     @Override
     public void delete(Long id) {
-        Optional<DetalleVenta> detalleVentaOld = detalleVentaDao.findById(id.toString());
-        detalleVentaDao.delete(detalleVentaOld.get());
+        Optional<DetalleVenta> detalleVentaOld = detalleVentaRepository.findById(id);
+        detalleVentaRepository.delete(detalleVentaOld.get());
     }
 }
