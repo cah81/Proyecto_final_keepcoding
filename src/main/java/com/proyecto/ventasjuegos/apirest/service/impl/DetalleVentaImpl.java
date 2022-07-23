@@ -1,7 +1,8 @@
-package com.proyecto.ventasjuegos.apirest.service;
+package com.proyecto.ventasjuegos.apirest.service.impl;
 
 import com.proyecto.ventasjuegos.apirest.entity.DetalleVenta;
 import com.proyecto.ventasjuegos.apirest.repository.DetalleVentaRepository;
+import com.proyecto.ventasjuegos.apirest.service.IDetalleVentaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

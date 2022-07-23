@@ -14,14 +14,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
 
 @Entity
 @Table(name = "venta")
+@Data
 public class Venta implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	@Column(nullable = false, unique = true)
 	private String nroFactura;
 	@Column(nullable = false)
@@ -32,47 +34,8 @@ public class Venta implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_Cliente")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	private Cliente cliente;
+	private Long id_Cliente;
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getNroFactura() {
-		return nroFactura;
-	}
-
-	public void setNroFactura(String nroFactura) {
-		this.nroFactura = nroFactura;
-	}
-
-	public Date getFechaVenta() {
-		return fechaVenta;
-	}
-
-	public void setFechaVenta(Date fechaVenta) {
-		this.fechaVenta = fechaVenta;
-	}
-
-	public double getMonto() {
-		return monto;
-	}
-
-	public void setMonto(double monto) {
-		this.monto = monto;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
 
 	/**
 	 * 
