@@ -21,7 +21,7 @@ public class Producto implements Serializable {
 	private String codigo_producto;
 	@Column(nullable = false)
 	private String descripcion;
-	@Column(nullable = false)
+
 	private String imagen;
 	@Column(nullable = false)
 	private int cantidad;

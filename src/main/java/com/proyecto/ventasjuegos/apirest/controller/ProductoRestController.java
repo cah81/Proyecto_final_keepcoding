@@ -100,7 +100,7 @@ public ResponseEntity<?> update(@RequestBody Producto producto,@PathVariable Lon
 		productoUpdate.setCodigo_producto(producto.getCodigo_producto());
 		productoUpdate.setNombre(producto.getNombre());
 		productoUpdate.setPrecio(producto.getPrecio());
-		productoUpdate.setStock(producto.getStock());
+		productoUpdate.setCantidad(producto.getCantidad());
 		productoUpdate.setTipo(producto.getTipo());
 		
 		

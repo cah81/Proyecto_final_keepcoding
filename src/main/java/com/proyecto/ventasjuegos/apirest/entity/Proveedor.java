@@ -3,12 +3,13 @@ package com.proyecto.ventasjuegos.apirest.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "proveedor")
 @Data
-public class Proveedor {
+public class Proveedor implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +32,10 @@ public class Proveedor {
 
     @Column(name = "create_at")
     private Date createAt;
+
+    /**
+     *
+     */
+    private static final Long serialVersionUID = 1L;
+
 }
