@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.proyecto.ventasjuegos</groupId>
 	<artifactId>com.proyecto.ventasjuegos</artifactId>
-	<version>1.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>ProyectoFinal</name>
 	<description>Proyecto final curso keepcoding</description>
 	<properties>

@@ -94,8 +94,9 @@ public class ProductoRestController {
         response.put("cliente", productoNew);
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
+}
 
-    @PutMapping("/productos/{id}")
+  /*  @PutMapping("/productos/{id}")
     public ResponseEntity<?> update(@RequestBody Producto producto, @PathVariable Long id) {
         Producto productoUpdate = productoService.update(producto, id);
         Map<String, Object> response = new HashMap<>();
@@ -106,10 +107,8 @@ public class ProductoRestController {
         try {
             productoUpdate.setNombre(producto.getNombre());
             productoUpdate.setCodigo_producto(producto.getCodigo_producto());
-            productoUpdate.setTipo(producto.getTipo());
-            productoUpdate.setPrecio(producto.getPrecio());
-            productoUpdate.setFecha_registro(producto.getFecha_registro());
-            productoUpdate.setCantidad(producto.getCantidad());
+            //productoUpdate.setPrecio(producto.getPrecio());
+            productoUpdate.setStock(producto.getStock());
             if (producto.getImagen() != null) {
                 String nombreFotoAnterior = producto.getImagen();
                 //verificamos que el cliente tenga registrado una imagen
@@ -136,8 +135,8 @@ public class ProductoRestController {
         response.put("producto", productoUpdate);
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
-
-
+*/
+/*
     @DeleteMapping("/productos/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         Optional<Producto> productoBorrado = productoService.findById(id);
@@ -171,9 +170,9 @@ public class ProductoRestController {
         response.put("producto", productoBorrado);
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
-
+*/
     //como vamos a subir un arhivo es crear un archivo nuevo por eso usamos esta anotacion
-    @PostMapping("/productos/uploads")
+  /*  @PostMapping("/productos/uploads")
     //para archivos se maneja una anotacion especial llamada @RequestParam
     //multipartfile es el manejador de archivos en java
     public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("id") long id) {
@@ -237,3 +236,4 @@ public class ProductoRestController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 }
+*/

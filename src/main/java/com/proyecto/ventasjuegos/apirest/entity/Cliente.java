@@ -4,7 +4,6 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -33,8 +32,8 @@ public class Cliente implements Serializable {
 	@Column(nullable = false, unique = true)
 	private String dni;
 
-	@Column(nullable = false)
-	private String direccion;
+//	@Column(nullable = false)
+//	private String direccion;
 
 	@Column(nullable = false, unique = true)
 	private String email;
@@ -42,10 +41,10 @@ public class Cliente implements Serializable {
 	@Column(nullable = false)
 	private int telefono;
 
-	@Column(name = "create_at")
-	private Date createAt;
-
-	private String imagen;
+//	@Column(name = "create_at")
+//	private Date createAt;
+//
+//	private String imagen;
 
 
 	/**
