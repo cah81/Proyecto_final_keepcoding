@@ -28,7 +28,7 @@ public class DetalleVentaImpl implements IDetalleVentaService {
     public DetalleVenta save(DetalleVenta detalleVenta) {
         return detalleVentaRepository.save(detalleVenta);
     }
-/*
+
     @Override
     //TODO: Revisar esto que no me acuerdo bien
     public DetalleVenta update(DetalleVenta detalleVenta, Long id) {
@@ -43,16 +43,10 @@ public class DetalleVentaImpl implements IDetalleVentaService {
             return detalleVentaRepository.save(detalleVentaOld.get());
         }
     }
-*/
+
     @Override
     public void delete(Long id) {
         Optional<DetalleVenta> detalleVentaOld = detalleVentaRepository.findById(id);
         detalleVentaRepository.delete(detalleVentaOld.get());
     }
-
-	@Override
-	public DetalleVenta update(DetalleVenta detalleVenta, Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

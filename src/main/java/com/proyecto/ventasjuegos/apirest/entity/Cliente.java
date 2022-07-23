@@ -1,19 +1,23 @@
 package com.proyecto.ventasjuegos.apirest.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.Table;
 
-import lombok.Data;
+
 
 @Entity
-@Table(name = "clientes")
+@Table(name = "cliente")
 @Data
 public class Cliente implements Serializable {
 	@Id
@@ -26,15 +30,15 @@ public class Cliente implements Serializable {
 	private String apellido;
 	@Column(nullable = false, unique = true)
 	private String dni;
-	//@Column(nullable = false)
-	//private String direccion;
+	@Column(nullable = false)
+	private String direccion;
 	@Column(nullable = false, unique = true)
 	private String email;
 	@Column(nullable = false)
 	private int telefono;
 	@Column(name = "create_at")
-	//private Date createAt;
-	//private String imagen;
+	private Date createAt;
+	private String imagen;
 
 	
 
