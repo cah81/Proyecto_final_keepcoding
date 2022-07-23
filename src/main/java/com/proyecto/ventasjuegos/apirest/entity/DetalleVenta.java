@@ -13,15 +13,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "detalleventa")
 @Data
+@NoArgsConstructor
 public class DetalleVenta implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable = false)
     private int cantidad;
@@ -39,9 +44,17 @@ public class DetalleVenta implements Serializable {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Producto producto;
 
+    @Builder
+    public DetalleVenta(Long id, int cantidad, double precioVenta, Venta venta, Producto producto){
+        this.id = id;
+        this.cantidad = cantidad;
+        this.precioVenta = precioVenta;
+        this.venta = venta;
+        this.producto = producto;
+    }
     /**
      *
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 10L;
 
 }

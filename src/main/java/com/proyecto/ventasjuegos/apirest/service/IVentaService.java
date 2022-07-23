@@ -3,7 +3,6 @@ package com.proyecto.ventasjuegos.apirest.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.proyecto.ventasjuegos.apirest.entity.Proveedor;
 import com.proyecto.ventasjuegos.apirest.entity.Venta;
 
 public interface IVentaService {

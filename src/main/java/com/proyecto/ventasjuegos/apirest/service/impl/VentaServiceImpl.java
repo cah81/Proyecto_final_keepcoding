@@ -4,11 +4,13 @@ import com.proyecto.ventasjuegos.apirest.entity.Venta;
 import com.proyecto.ventasjuegos.apirest.repository.VentaRepository;
 import com.proyecto.ventasjuegos.apirest.service.IVentaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class VentaServiceImpl implements IVentaService {
     @Autowired
     private VentaRepository ventaRepository;
@@ -30,11 +32,11 @@ public class VentaServiceImpl implements IVentaService {
 
     @Override
     public Venta update(Venta producto, Long id) {
-        Optional<Venta> ventaDB = VentaRepository.findById(id);
+        Optional<Venta> ventaDB = ventaRepository.findById(id);
         Venta ventaUpdate = null;
         if(!ventaDB.isEmpty()){
             ventaUpdate = ventaDB.get();
-            ventaUpdate.setNroFactura((ventaUpdate.getNroFactura());
+            ventaUpdate.setNroFactura(ventaUpdate.getNroFactura());
             ventaUpdate.setFechaVenta(ventaUpdate.getFechaVenta());
             ventaUpdate.setMonto(ventaUpdate.getMonto());
 
@@ -46,13 +48,13 @@ public class VentaServiceImpl implements IVentaService {
 
     @Override
     public void delete(Long id) {
-
+        ventaRepository.deleteById(id);
     }
+
     //El parametro del id es el id del cliente, no de la factura. Devuelve una lista de factura
     //filtrada por cliente
     public List<Venta> finAllById(Long id) {
         List<Venta> ventas= ventaRepository.findAll();
-        return ventas.stream().filter(element -> element.getId_Cliente().equals(id)).collect(Collectors.toList());
-
+        return ventas.stream().filter(element -> element.getCliente().getId().equals(id)).collect(Collectors.toList());
     }
 }
