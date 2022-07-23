@@ -12,12 +12,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class ProveedorRestController {
-
+/*
     @Autowired
     private ProveedorServiceImpl proveedorService;
 
     @GetMapping({"/productos", "/"})
     public List<Proveedor> index() {
         return proveedorService.finAll();
-    }
+    }*/
 }
