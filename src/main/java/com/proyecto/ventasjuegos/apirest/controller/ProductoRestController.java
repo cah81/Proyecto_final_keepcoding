@@ -188,7 +188,7 @@ public ResponseEntity<?> update(@RequestBody Producto producto,@PathVariable Lon
 				producto.setImagen(nombreArchivo);
 	            //registramos en base de datos
 	            productoService.save(producto);
-	            response.put("cliente", producto);
+	            response.put("producto", producto);
 	            response.put("mensaje","Imagen subida correctamente :"+nombreArchivo);
 			}
 		
