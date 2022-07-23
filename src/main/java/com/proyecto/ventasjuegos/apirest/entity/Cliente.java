@@ -22,30 +22,35 @@ import javax.persistence.Table;
 public class Cliente implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@Column(nullable = false)
 	private String nombre;
+
 	@Column(nullable = false)
 	private String apellido;
+
 	@Column(nullable = false, unique = true)
 	private String dni;
+
 	@Column(nullable = false)
 	private String direccion;
+
 	@Column(nullable = false, unique = true)
 	private String email;
+
 	@Column(nullable = false)
 	private int telefono;
+
 	@Column(name = "create_at")
 	private Date createAt;
-	private String imagen;
 
-	
+	private String imagen;
 
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final Long serialVersionUID = 1L;
 
 }
