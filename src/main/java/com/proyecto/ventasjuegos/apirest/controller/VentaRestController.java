@@ -72,12 +72,12 @@ public class VentaRestController {
 		double montoTotal = 0;
 		List<ListaProductosDTO> listaProductos = ventaDTO.getListaProductosDTOs();
 		for (ListaProductosDTO listaProducto : listaProductos) {
-			Producto producto = productoService.findById(listaProducto.getIdProducto()).get();
+			Producto producto = productoService.findById(listaProducto.getIdProducto());
 			montoTotal += producto.getPrecio();
 		}
 		// Crear venta
 		Venta venta = Venta.builder()
-				.cliente(clienteService.findById(ventaDTO.getIdCliente()).get())
+				.cliente(clienteService.findById(ventaDTO.getIdCliente()))
 				.fechaVenta(ventaDTO.getFechaVenta())
 				.monto(montoTotal)
 				.build();
@@ -90,7 +90,7 @@ public class VentaRestController {
 		}
 		// Por cada producto de la lista de detalle, crear detalle venta
 		for (ListaProductosDTO listaProducto : listaProductos) {
-			Producto producto = productoService.findById(listaProducto.getIdProducto()).get();
+			Producto producto = productoService.findById(listaProducto.getIdProducto());
 			DetalleVenta detalleVenta = DetalleVenta.builder()
 					.venta(venta)
 					.producto(producto)
